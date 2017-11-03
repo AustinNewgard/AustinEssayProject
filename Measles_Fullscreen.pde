@@ -29,35 +29,3 @@ rect (displayWidth*1/2, displayHeight*1/2, 75, 75);// Nose
 rect (displayWidth*1/2, displayHeight*1/2+90, 600, 30);// Mouth
 rectMode (CORNER);// Reset back to deafult
 }
-//void keyPressed () {}
-
-//void mousePressed () {} 
-
-//fullScreen();
-//size(501, 501);
-//print("My display width is " + displayWidth + "\n My Display height is " + displayHeight);
-//rect(880, 305, 155, 300, 7); // Square
-//rect(300, 80, 155, 155, 50); // Square curved edges
-//ellipse(1366/2, 768/2, 35, 35); // Circle
-//size(501, 501); // Size of the Canvas, monitor?
-//print("Screen Dimensions" + "\n My width is " + displayWidth + "\n My height is " + displayHeight)
-
-
-/*
-fill(#FA0808);
-ellipse (int(random(0, 502)), int(random(0, 502)), 10, 10); // mealses start, casting review
-ellipse (random(0, 502), random(0., 502), 10, 10); 
-ellipse (random(0, 502), random(0, 502), 10, 10);
-ellipse (random(0, 502), random(0, 502), 10, 10);
-ellipse (random(0, 502), random(0, 502), 10, 10);
-ellipse (random(0, 502), random(0, 502), 10, 10);
-ellipse (random(0, 502), random(0, 502), 10, 10);
-ellipse (random(0, 502), random(0, 502), 10, 10);
-ellipse (random(0, 502), random(0, 502), 10, 10);
-ellipse (random(0, 502), random(0, 502), 10, 10);
-ellipse (random(0, 502), random(0, 502), 10, 10);
-ellipse (random(0, 502), random(0, 502), 10, 10);
-ellipse (random(0, 502), random(0, 502), 10, 10);
-ellipse (random(0, 502), random(0, 502), 10, 10);
-noStroke();
-*/
