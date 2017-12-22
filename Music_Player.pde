@@ -95,3 +95,13 @@ if (indexSong < 0) { // left check
 // Play and pause  
 //Needs image
 //Time left use clicker game
+
+/*
+if (condition) {
+    if (condition) {
+        // some code
+    } else {
+        // some code
+    }
+}
+*/
