@@ -6,35 +6,35 @@ String quit = "Quit";
 String backcolor = "Background";
 String pause = "Play/Stop";
 color cback = color( random(255), random(255), random(255) );
-color blue1 = #4100F7;
+color blue = #4100F7;
 color red = #FF0000;
 color green = #00D376;
 color white = 255;
-color dpurple = #6C00A2;
-color red1 = red;
+color purple = #6C00A2;
 int stop = 0;
 int linecolor = 0;
 int image = 0;
 PImage img;
 String danny = "DANNY PHANTOM";
-
+int tint = white;
+String erase="Erase";
 
 void setup () {
   img = loadImage("Pictures-of-Danny-Phantom-Coloring-Pages.jpeg");
   size(600, 600);
   background(cback);
-   song[0] = new SoundFile (this, "Danny - Phantom.mp3");
+   song[0] = new SoundFile (this, "Danny - Phantom (1).mp3");
 }
 
 
 void draw () {
-  rect(10,480,180,25);
   fill(0);
   textSize(20);
-  fill(dpurple);
+  fill(purple);
   text(danny, 10,500); // Danny phantom string
   text(pause, 0, 550);//Play /pause text
   text(backcolor, 10, 65); // Background text
+  text(erase,450,530); // Erase text
   text(quit, 0, 20); // Quit button text
   textSize(25);
   fill(red);
@@ -43,7 +43,7 @@ void draw () {
   fill(green);
   rect(250, 550, 80, 40); //green line
   rect(10, 140, 80, 40); //GREEN back
-  fill(blue1);
+  fill(blue);
    rect(350, 550, 80, 40); //blue line
   rect(10, 200, 80, 40); // BLUE back
   fill(white);
@@ -60,31 +60,34 @@ void mousePressed () {
   }
 
   if (mouseX>=10 && mouseX<=90 && mouseY>=80 && mouseY<=120) { //Red function bac
+   tint=red;
     background(red);
-    image = 1;
   }
   
   if(mouseX>=10 && mouseX<=90 && mouseY>=140 && mouseY<=180){ // Green function bac
+  tint=green;
     background(green);
   }
   
   if(mouseX>=10 && mouseX<=90 && mouseY>=200 && mouseY<=240){ // Blue function bac
-    background(blue1);
+  tint=blue;
+    background(blue);
   }
   
   if(mouseX>=10 && mouseX<=90 && mouseY>=260 && mouseY<=300) { // White function bac
+  tint=white;
     background(white);
   }
   
    if(mouseX>=150 && mouseX<=230 && mouseY>=500 && mouseY<=590) { //Line color red
-     linecolor = red1;
+     linecolor = red;
    }
     
     if(mouseX>=250 && mouseX<=330 && mouseY>=500 && mouseY<=590) { // Line color green
       linecolor = green;
   }
     if(mouseX>=350 && mouseX<=430 && mouseY>=500 && mouseY<=590){ // Line color blue
-     linecolor = blue1;
+     linecolor = blue;
    }
    if(mouseX>=450 && mouseX<=530 && mouseY>=500 && mouseY<=590){ // Line color white
       linecolor = white;
@@ -100,32 +103,38 @@ void mousePressed () {
       }
   }
   
+  
+  if(mouseX>=10 && mouseX<=190 && mouseY>=475 && mouseY<=505){
+    background(tint);
+   image=1;
+  }
+ 
+  
+  
+  
+  
 stroke(linecolor);
 strokeWeight(10);
-line(mouseX, mouseY, pmouseX, pmouseY);
+line(mouseX, mouseY, pmouseX, pmouseY); //LINE
 strokeWeight(1);
 fill(white);
   stroke(0);
   
   if(image == 1) {
-    image = 0;
+    image = 0; 
+    tint(tint);// LINE COLOR FUNCTION
   image(img, 0, 0);
-}
-  
+  } 
  
 }
-  
-  
-  
-
+ 
 
 void mouseDragged() {
   stroke(linecolor);
 strokeWeight(10);
-line(mouseX, mouseY, pmouseX, pmouseY);
+line(mouseX, mouseY, pmouseX, pmouseY); // LINE COLOR FUCTION WHILE DRAGGED
 strokeWeight(1);
 fill(white);
 stroke(0);
 
 }
-  
