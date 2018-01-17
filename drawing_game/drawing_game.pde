@@ -9,11 +9,11 @@ color cback = color( random(255), random(255), random(255) );
 color blue = #4100F7;
 color red = #FF0000;
 color green = #00D376;
-color white = 255;
+color white = #FFFFFF;
 color purple = #6C00A2;
 int stop = 0;
 int linecolor = 0;
-int image = 0;
+boolean image = false;
 PImage img;
 String danny = "DANNY PHANTOM";
 int tint = white;
@@ -60,39 +60,65 @@ void mousePressed () {
   }
 
   if (mouseX>=10 && mouseX<=90 && mouseY>=80 && mouseY<=120) { //Red function bac
+  if(image==true){
    tint=red;
-    background(red);
+    background(tint);
+    tint(tint);
+  image(img, 0, 0);
+  }else{
+  image=false;
+  background(red);
   }
-  
+  }
+
   if(mouseX>=10 && mouseX<=90 && mouseY>=140 && mouseY<=180){ // Green function bac
+  if(image==true){
   tint=green;
-    background(green);
+    background(tint);
+    tint(tint);
+  image(img, 0, 0);
+  }else{
+  image=false;
+  background(green);
+  }
   }
   
   if(mouseX>=10 && mouseX<=90 && mouseY>=200 && mouseY<=240){ // Blue function bac
+    if(image==true){
   tint=blue;
-    background(blue);
+    background(tint);
+      tint(tint);
+  image(img, 0, 0);
+  }else{
+  image=false;
+  background(blue);
+  }
   }
   
   if(mouseX>=10 && mouseX<=90 && mouseY>=260 && mouseY<=300) { // White function bac
+    if(image==true){
   tint=white;
-    background(white);
+    background(tint);
+     tint(tint);
+  image(img, 0, 0);
+  }else{
+  image=false;
+  background(white);
+  }
   }
   
    if(mouseX>=150 && mouseX<=230 && mouseY>=500 && mouseY<=590) { //Line color red
      linecolor = red;
    }
-    
-    if(mouseX>=250 && mouseX<=330 && mouseY>=500 && mouseY<=590) { // Line color green
+     if(mouseX>=250 && mouseX<=330 && mouseY>=500 && mouseY<=590) { // Line color green
       linecolor = green;
   }
-    if(mouseX>=350 && mouseX<=430 && mouseY>=500 && mouseY<=590){ // Line color blue
+  if(mouseX>=350 && mouseX<=430 && mouseY>=500 && mouseY<=590){ // Line color blue
      linecolor = blue;
-   }
-   if(mouseX>=450 && mouseX<=530 && mouseY>=500 && mouseY<=590){ // Line color white
+ }
+  if(mouseX>=450 && mouseX<=530 && mouseY>=500 && mouseY<=590){ // Line color white
       linecolor = white;
   }
-
   if(mouseX>=0 && mouseX<=100 && mouseY>=520 && mouseY<=555){
    if(stop == 0){
      song[indexSong].play(); // PLAY / PAUSE FUNCTION
@@ -103,15 +129,18 @@ void mousePressed () {
       }
   }
   
-  
-  if(mouseX>=10 && mouseX<=190 && mouseY>=475 && mouseY<=505){
-    background(tint);
-   image=1;
-  }
- 
-  
-  
-  
+ if(mouseX>=10 && mouseX<=190 && mouseY>=475 && mouseY<=505){
+ if(image==false){
+   image=true;
+   background(tint);
+       tint(tint);
+  image(img, 0, 0);
+ }else{
+   image=false;
+   tint(tint);
+   background(tint);
+ }
+ }
   
 stroke(linecolor);
 strokeWeight(10);
@@ -119,13 +148,6 @@ line(mouseX, mouseY, pmouseX, pmouseY); //LINE
 strokeWeight(1);
 fill(white);
   stroke(0);
-  
-  if(image == 1) {
-    image = 0; 
-    tint(tint);// LINE COLOR FUNCTION
-  image(img, 0, 0);
-  } 
- 
 }
  
 
