@@ -5,6 +5,9 @@ int indexSong = 0;
 String quit = "Quit";
 String backcolor = "Background";
 String pause = "Play/Stop";
+String danny = "DANNY PHANTOM";
+String erase="Erase";
+String tim="TIMMY TURNER";
 color cback = color( random(255), random(255), random(255) );
 color blue = #4100F7;
 color red = #FF0000;
@@ -15,22 +18,22 @@ int stop = 0;
 int linecolor = 0;
 boolean image = false;
 PImage img;
-String danny = "DANNY PHANTOM";
-int tint = white;
-String erase="Erase";
+int tint = cback;
+
+
 
 void setup () {
-  img = loadImage("Pictures-of-Danny-Phantom-Coloring-Pages.jpeg");
+
   size(600, 600);
   background(cback);
    song[0] = new SoundFile (this, "Danny - Phantom (1).mp3");
 }
 
-
 void draw () {
   fill(0);
   textSize(20);
   fill(purple);
+  text(tim,10, 450);// Timmy turner string
   text(danny, 10,500); // Danny phantom string
   text(pause, 0, 550);//Play /pause text
   text(backcolor, 10, 65); // Background text
@@ -66,7 +69,9 @@ void mousePressed () {
     tint(tint);
   image(img, 0, 0);
   }else{
+    tint=red;
   image=false;
+  tint(tint);
   background(red);
   }
   }
@@ -78,7 +83,9 @@ void mousePressed () {
     tint(tint);
   image(img, 0, 0);
   }else{
+    tint=green;
   image=false;
+  tint(tint);
   background(green);
   }
   }
@@ -90,7 +97,9 @@ void mousePressed () {
       tint(tint);
   image(img, 0, 0);
   }else{
+    tint=blue;
   image=false;
+  tint(tint);
   background(blue);
   }
   }
@@ -102,21 +111,24 @@ void mousePressed () {
      tint(tint);
   image(img, 0, 0);
   }else{
+     tint=white;
+    tint(tint);
   image=false;
+  tint(tint);
   background(white);
   }
   }
   
-   if(mouseX>=150 && mouseX<=230 && mouseY>=500 && mouseY<=590) { //Line color red
+   if(mouseX>=150 && mouseX<=230 && mouseY>=550 && mouseY<=590) { //Line color red
      linecolor = red;
    }
-     if(mouseX>=250 && mouseX<=330 && mouseY>=500 && mouseY<=590) { // Line color green
+     if(mouseX>=250 && mouseX<=330 && mouseY>=550 && mouseY<=590) { // Line color green
       linecolor = green;
   }
-  if(mouseX>=350 && mouseX<=430 && mouseY>=500 && mouseY<=590){ // Line color blue
+  if(mouseX>=350 && mouseX<=430 && mouseY>=550 && mouseY<=590){ // Line color blue
      linecolor = blue;
  }
-  if(mouseX>=450 && mouseX<=530 && mouseY>=500 && mouseY<=590){ // Line color white
+  if(mouseX>=450 && mouseX<=530 && mouseY>=550 && mouseY<=590){ // Line color white
       linecolor = white;
   }
   if(mouseX>=0 && mouseX<=100 && mouseY>=520 && mouseY<=555){
@@ -131,8 +143,9 @@ void mousePressed () {
   
  if(mouseX>=10 && mouseX<=190 && mouseY>=475 && mouseY<=505){
  if(image==false){
+    img = loadImage("Pictures-of-Danny-Phantom-Coloring-Pages.jpeg");
    image=true;
-   background(tint);
+   background(tint); // DANNY PHANTOM PIC FUNCTION
        tint(tint);
   image(img, 0, 0);
  }else{
@@ -141,6 +154,29 @@ void mousePressed () {
    background(tint);
  }
  }
+ 
+ //10, 450
+  if(mouseX>=10 && mouseX<=190 && mouseY>=420 && mouseY<=450){
+ if(image==false){
+    img = loadImage("timmy.png");
+   image=true;
+   background(tint);
+       tint(tint);
+  image(img, 200, 200);
+ }else{
+   image=false;
+   tint(tint);
+   background(tint);
+ }
+ }
+ 
+ 
+ 
+ 
+ 
+ if(mouseX>=450 && mouseX<=505 && mouseY>=510 && mouseY<=535){
+  linecolor=tint;   // ERASE FUNCTION
+  }
   
 stroke(linecolor);
 strokeWeight(10);
@@ -148,6 +184,8 @@ line(mouseX, mouseY, pmouseX, pmouseY); //LINE
 strokeWeight(1);
 fill(white);
   stroke(0);
+  
+  
 }
  
 
