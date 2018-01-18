@@ -1,5 +1,5 @@
 import processing.sound.*;
-int totalSongs = 1;
+int totalSongs = 3;
 SoundFile[] song = new SoundFile[totalSongs];
 int indexSong = 0;
 String quit = "Quit";
@@ -8,34 +8,37 @@ String pause = "Play/Stop";
 String danny = "DANNY PHANTOM";
 String erase="Erase";
 String tim="TIMMY TURNER";
+String cline="Drawing";
 color cback = color( random(255), random(255), random(255) );
 color blue = #4100F7;
 color red = #FF0000;
 color green = #00D376;
 color white = #FFFFFF;
 color purple = #6C00A2;
-int stop = 0;
+int stop = 1;
 int linecolor = 0;
+int tint = cback;
 boolean image = false;
 PImage img;
-int tint = cback;
-
-
 
 void setup () {
 
   size(600, 600);
   background(cback);
-   song[0] = new SoundFile (this, "Danny - Phantom (1).mp3");
+   song[0] = new SoundFile (this, "WiiMusic.mp3");
+   song[1] = new SoundFile (this, "Danny - Phantom.mp3");
+   song[2] = new SoundFile (this, "Fairly Odd Parents Theme Song.mp3");
+   song[indexSong].play();
 }
 
 void draw () {
   fill(0);
   textSize(20);
   fill(purple);
-  text(tim,10, 450);// Timmy turner string
-  text(danny, 10,500); // Danny phantom string
-  text(pause, 0, 550);//Play /pause text
+  text(cline,10,575);//drawing sring
+  text(tim,10,390);// Timmy turner string
+  text(danny,10,430); // Danny phantom string
+  text(pause, 10,530);//Play /pause text
   text(backcolor, 10, 65); // Background text
   text(erase,450,530); // Erase text
   text(quit, 0, 20); // Quit button text
@@ -51,10 +54,8 @@ void draw () {
   rect(10, 200, 80, 40); // BLUE back
   fill(white);
   rect(450, 550, 80, 40); //white line
-  rect(10, 260, 80, 40);  // WHITE back
-  
+  rect(10, 260, 80, 40);  // WHITE back  
 }
-
 
 void mousePressed () {
 
@@ -67,7 +68,7 @@ void mousePressed () {
    tint=red;
     background(tint);
     tint(tint);
-  image(img, 0, 0);
+  image(img, 150, 40);
   }else{
     tint=red;
   image=false;
@@ -81,7 +82,7 @@ void mousePressed () {
   tint=green;
     background(tint);
     tint(tint);
-  image(img, 0, 0);
+  image(img, 150, 40);
   }else{
     tint=green;
   image=false;
@@ -95,7 +96,7 @@ void mousePressed () {
   tint=blue;
     background(tint);
       tint(tint);
-  image(img, 0, 0);
+  image(img, 150, 40);
   }else{
     tint=blue;
   image=false;
@@ -109,7 +110,7 @@ void mousePressed () {
   tint=white;
     background(tint);
      tint(tint);
-  image(img, 0, 0);
+  image(img, 150, 40);
   }else{
      tint=white;
     tint(tint);
@@ -131,7 +132,7 @@ void mousePressed () {
   if(mouseX>=450 && mouseX<=530 && mouseY>=550 && mouseY<=590){ // Line color white
       linecolor = white;
   }
-  if(mouseX>=0 && mouseX<=100 && mouseY>=520 && mouseY<=555){
+  if(mouseX>=10 && mouseX<=105 && mouseY>=510 && mouseY<=535){
    if(stop == 0){
      song[indexSong].play(); // PLAY / PAUSE FUNCTION
      stop = 1;
@@ -141,38 +142,45 @@ void mousePressed () {
       }
   }
   
- if(mouseX>=10 && mouseX<=190 && mouseY>=475 && mouseY<=505){
+ if(mouseX>=10 && mouseX<=190 && mouseY>=410 && mouseY<=435){
  if(image==false){
-    img = loadImage("Pictures-of-Danny-Phantom-Coloring-Pages.jpeg");
+    img = loadImage("danny.jpg");
+     song[indexSong].stop();
+    indexSong=1;
+     stop=1;
+    song[indexSong].play();
    image=true;
    background(tint); // DANNY PHANTOM PIC FUNCTION
        tint(tint);
-  image(img, 0, 0);
+  image(img, 150, 40);
  }else{
+    stop=0;
+   song[indexSong].stop();
    image=false;
    tint(tint);
    background(tint);
  }
  }
  
- //10, 450
-  if(mouseX>=10 && mouseX<=190 && mouseY>=420 && mouseY<=450){
+  if(mouseX>=10 && mouseX<=160 && mouseY>=360 && mouseY<=400){
  if(image==false){
-    img = loadImage("timmy.png");
+    img = loadImage("timmy.gif");
+    song[indexSong].stop();
+    indexSong=2;
+     stop=1;
+    song[indexSong].play();
    image=true;
-   background(tint);
+   background(tint);      // TIMMY TURNER PIC FUNCTION
        tint(tint);
-  image(img, 200, 200);
+  image(img, 150, 40);
  }else{
+   stop=0;
+   song[indexSong].stop();
    image=false;
    tint(tint);
    background(tint);
  }
  }
- 
- 
- 
- 
  
  if(mouseX>=450 && mouseX<=505 && mouseY>=510 && mouseY<=535){
   linecolor=tint;   // ERASE FUNCTION
@@ -180,15 +188,12 @@ void mousePressed () {
   
 stroke(linecolor);
 strokeWeight(10);
-line(mouseX, mouseY, pmouseX, pmouseY); //LINE
+line(mouseX, mouseY, pmouseX, pmouseY); //LINE DOT 
 strokeWeight(1);
 fill(white);
   stroke(0);
-  
-  
 }
  
-
 void mouseDragged() {
   stroke(linecolor);
 strokeWeight(10);
