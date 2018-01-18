@@ -15,6 +15,7 @@ color red = #FF0000;
 color green = #00D376;
 color white = #FFFFFF;
 color purple = #6C00A2;
+color pink = #FF055D;
 int stop = 1;
 int linecolor = 0;
 int tint = cback;
@@ -24,6 +25,7 @@ PImage img;
 void setup () {
 
   size(600, 600);
+  smooth();
   background(cback);
    song[0] = new SoundFile (this, "WiiMusic.mp3");
    song[1] = new SoundFile (this, "Danny - Phantom.mp3");
@@ -190,7 +192,6 @@ stroke(linecolor);
 strokeWeight(10);
 line(mouseX, mouseY, pmouseX, pmouseY); //LINE DOT 
 strokeWeight(1);
-fill(white);
   stroke(0);
 }
  
@@ -199,7 +200,6 @@ void mouseDragged() {
 strokeWeight(10);
 line(mouseX, mouseY, pmouseX, pmouseY); // LINE COLOR FUCTION WHILE DRAGGED
 strokeWeight(1);
-fill(white);
 stroke(0);
 
 }
