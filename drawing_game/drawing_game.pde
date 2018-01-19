@@ -9,6 +9,7 @@ String danny = "DANNY PHANTOM";
 String erase="Erase";
 String tim="TIMMY TURNER";
 String cline="Drawing";
+String clear="Clear";
 color cback = color( random(255), random(255), random(255) );
 color blue = #4100F7;
 color red = #FF0000;
@@ -23,9 +24,8 @@ boolean image = false;
 PImage img;
 
 void setup () {
-
   size(600, 600);
-  smooth();
+  smooth(10);
   background(cback);
    song[0] = new SoundFile (this, "WiiMusic.mp3");
    song[1] = new SoundFile (this, "Danny - Phantom.mp3");
@@ -36,7 +36,9 @@ void setup () {
 void draw () {
   fill(0);
   textSize(20);
+  strokeWeight(8);
   fill(purple);
+  text(clear,10,330);
   text(cline,10,575);//drawing sring
   text(tim,10,390);// Timmy turner string
   text(danny,10,430); // Danny phantom string
@@ -46,7 +48,7 @@ void draw () {
   text(quit, 0, 20); // Quit button text
   textSize(25);
   fill(red);
-  rect(150, 550, 80, 40); //red line
+  rect(150, 550, 80, 40); 
   rect(10, 80, 80, 40); //RED back
   fill(green);
   rect(250, 550, 80, 40); //green line
@@ -185,19 +187,25 @@ void mousePressed () {
  }
  
  if(mouseX>=450 && mouseX<=505 && mouseY>=510 && mouseY<=535){
-  linecolor=tint;   // ERASE FUNCTION
-  }
-  
+  linecolor=tint; 
+ }
+ 
 stroke(linecolor);
-strokeWeight(10);
+strokeWeight(12);
 line(mouseX, mouseY, pmouseX, pmouseY); //LINE DOT 
 strokeWeight(1);
   stroke(0);
+  
+  if(mouseX>=10 && mouseX<=80 && mouseY>=310 && mouseY<=340){
+ background(tint); 
+ image=false;
+  }
+  
 }
  
 void mouseDragged() {
   stroke(linecolor);
-strokeWeight(10);
+strokeWeight(12);
 line(mouseX, mouseY, pmouseX, pmouseY); // LINE COLOR FUCTION WHILE DRAGGED
 strokeWeight(1);
 stroke(0);
